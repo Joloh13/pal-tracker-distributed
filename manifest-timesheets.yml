@@ -3,8 +3,13 @@ applications:
   path: ./applications/timesheets-server/build/libs/timesheets-server.jar
   host: timesheets-pal-jl
   memory: 1G
+  env:
+    GRANT_TYPE: client_credentials
+    SECURITY_USER_NAME: actuator
+    SECURITY_USER_PASSWORD: operations4red
   instances: 1
   services:
   - tracker-timesheets-database
   - tracker-service-registry
   - tracker-circuit-breaker-dashboard
+  - tracker-sso
